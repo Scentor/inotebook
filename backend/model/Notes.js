@@ -3,12 +3,10 @@ const { Schema } = mongoose;
 
 const notesSchema = new Schema(
     {
-        name:  String, // String is shorthand for {type: String}
-        email: String,
-        password:  String,
-        date:{type:Date,Default:Date.now} 
-
-}
+        title:{type:String,required:true,unique: true}, 
+        description:{type:String,required:true},
+        tag:{type:String,default:"General"},
+        date:{type:Date,default:Date.now} 
+    }
 );
-
 module.exports = mongoose.model("user",notesSchema)
